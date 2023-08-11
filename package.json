@@ -1,0 +1,12 @@
+{
+  "name": "react_note_app",
+  "version": "1.0.0",
+  "description": "NoteWayve is a simple and intuitive note-taking application that allows users to create, organize, and manage their notes efficiently.",
+  "main": "index.jsx",
+  "scripts": {
+    "dev": "cd ./client && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

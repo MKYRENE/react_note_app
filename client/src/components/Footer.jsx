@@ -6,6 +6,8 @@ const Footer = (propObj) => {
   return (
     <footer style={styles.footer}>
       <p>&copy; {currentYear} NoteWave Dev'd & Design By GH@MKYRENE. All rights reserved.</p>
+   <p>Count: {propObj.count}</p>
+   
     </footer>
   );
 };
