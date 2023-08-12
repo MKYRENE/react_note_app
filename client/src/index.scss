@@ -1,3 +1,7 @@
+html, body, #root, .dark { // this is for the dark mode
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,44 +9,105 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(50, 48, 48);
-  color:rgb(255, 255, 255);
-  padding: 0 4%;
+  padding: 0;
 }
 
-a {
-  color:#ffffff;
+.row,
+.column {
+  display: flex;
 }
 
-.row {
-  display:flex;
+.column {
+  flex-direction: column;
 }
 
 .justify-between {
   justify-content: space-between;
 }
+
 .align-center {
   align-items: center;
 }
 
-img {
-  width: 300px;
+.text-center {
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  padding: 0 4%;
+}
+
+.dark {
+  background: #464545;
+  color: #fff;
 }
 
 header {
-  nav a {
-    text-decoration: none;
-    color:rgb(97, 187, 226);
-    &:not(:last-child) {
-      margin-right: 20px; //this is for spacing 
-    } 
-    &.active {
-      text-decoration: underline;
+  .dark-mode-toggle {
+    background: #0881b5;
+    height: 25px;
+    width: 70px;
+    border-radius: 30px;
+    position: relative;
+    .dark-mode {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      height: 19px;
+      width: 19px;
+      border-radius: 50%;
+      background: #fff;
+      transition: 0.4s;
+      top: 2px;
+      left: 4px;
+      background: #000000;
+      &.dark {
+        left: 45px;
+        background: #fff;
+      }
+    }
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+}
+
+nav a {
+  color:  rgb(31, 140, 187);
+  text-decoration: none;
+
+  &:not(:last-child) {
+    margin-right: 20px; // this is for spacing
+  }
+
+  &.active {
+    text-decoration: underline;
+  }
+}
+
+form {
+  width: 500px;
+  margin: 0 auto; // this will put the form in the center of the page
+
+  > * {
+    padding: 4px 10px;
+    margin-bottom: 4px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(31, 140, 187);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem; // by default it is 16px
+
+    &:hover {
+      background-color: rgb(11, 93, 155);
+      color: rgb(255, 255, 255);
     }
   }
 }

@@ -1,42 +1,50 @@
-import { useState } from 'react'; //hook function 'useState' this is one of the function in the react package.
+import { useState } from 'react';
 
-//COMPONENTS IMPORTS
-import Header from './components/Header'
-import Footer from './components/Footer'
+// Component Imports
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-//PAGES IMPORT
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Landing from './pages/Landing'
-
-
+// Page imports
+import Landing from './pages/Landing';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
-  const [page, setPage] = useState('landing');//useState function returns an array
-  const [count, setCount] = useState('0')
-
+  const [page, setPage] = useState('landing');
+  const [studentName, setStudentName] = useState('');
+  const [students, setStudents] = useState(['Michael', 'Barbie', 'Brian', 'Jenesis']);
+  const [darkMode, setDarkMode] = useState(true);
 
   const handlePageView = () => {
+
     switch (page) {
       case 'landing':
-        return <Landing />;
+        return <Landing
+          studentName={studentName}
+          setStudentName={setStudentName}
+          students={students}
+          setStudents={setStudents} />;
       case 'about':
         return <About />;
       default:
         return <Contact />
     }
-
   }
 
+  
   return (
-    < >
-      <Header count={count} page={page} setPage={setPage} />
+    //  this is a ternary operator with a template literal of the dark mode.
+    <div className={`container ${darkMode ? 'dark' : ''}`}>
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        page={page}
+        setPage={setPage} />
 
-    {handlePageView()}
+      {handlePageView()}
 
-<p>Count:{count}</p>
-    <Footer count={count} />
-    </>
+      <Footer studentName={studentName} />
+    </div>
   );
 }
 
